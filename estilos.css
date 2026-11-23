@@ -1,6 +1,11 @@
 :root {
-    --color-bg: #5c321c;
-    --color-txt: #fbe094;
+  --cafe: #493126;
+  --cafe-oscuro: #302019;
+  --naranja: #c8793d;
+  --crema: #fff8ed;
+  --papel: #f3e7d5;
+  --texto: #493d35;
+  --blanco: #fffdf9;
 }
 
 *,
