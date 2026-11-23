@@ -1,1 +1,4 @@
-
+body {
+    background-color: var(--color-bg);
+    font-family: Helvetica, Arial, sans-serif;
+}
