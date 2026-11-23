@@ -3,6 +3,14 @@
     --color-txt: #fbe094;
 }
 
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 body {
     background-color: var(--color-bg);
     color: var(--color-txt);
