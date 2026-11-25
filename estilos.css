@@ -447,3 +447,24 @@ footer {
     }
 }
 
+.faq-contenido{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:20px 24px}
+.faq-item{background:#fffdf9;border:1px solid #eadbc8;border-left:5px solid #c8793d;border-radius:8px;padding:24px;box-shadow:0 7px 18px #4931260b}
+.faq-item h2{font-family:Arial,Helvetica,sans-serif;font-size:1.12rem;line-height:1.35;margin:0 0 10px}
+.faq-item p{margin:0}
+.faq-pie{margin:10px 9% 75px;padding:42px 25px;text-align:center;background:#493126;color:#fff5e9;border-radius:9px}
+.faq-pie h2{color:white;margin-top:0}
+@media(max-width:760px){.faq-contenido{grid-template-columns:1fr}.faq-pie{margin:10px 7% 55px}}
+
+.cuidados-intro{display:grid;grid-template-columns:1.3fr .7fr;gap:45px;align-items:center}
+.cuidados-intro h2{margin:12px 0}
+.invierno-dibujo{min-height:245px;border-radius:48% 52% 42% 58%;background:#ead5b9;display:flex;align-items:center;justify-content:center;gap:14px;flex-direction:column;color:#493126;text-align:center;font-family:Georgia,serif;font-size:1.55rem;transform:rotate(2deg)}
+.invierno-dibujo span{font-size:2.4rem;color:#6e91a4}
+.consejos{padding-top:25px}
+.consejos>h2{text-align:center;margin-bottom:30px}
+.consejos-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.consejo{background:#fffdf9;border:1px solid #eadbc8;border-radius:9px;padding:23px}
+.consejo>span{font-size:2rem}.consejo h3{color:#493126;font-size:1.08rem}.consejo p{font-size:.95rem;margin-bottom:0}
+.mensaje-invierno{margin:10px 9% 75px;padding:45px 25px;text-align:center;background:#ead5b9;border-radius:9px}
+.mensaje-invierno h2{margin-top:0}
+@media(max-width:900px){.consejos-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:760px){.cuidados-intro{grid-template-columns:1fr}.invierno-dibujo{min-height:200px}.consejos-grid{grid-template-columns:1fr}.mensaje-invierno{margin:10px 7% 55px}}
