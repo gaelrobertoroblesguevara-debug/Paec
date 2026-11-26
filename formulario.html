@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+          content="Regístrate como donante en la campaña Cobijando con Conciencia: elige qué donar y cómo entregarlo.">
+    <title>Registro de donantes | Cobijando con Conciencia</title>
+    <link rel="stylesheet" href="estilos.css">
+
+    <!-- Estilos específicos del formulario (complementan estilos.css) -->
+    <style>
+        .formulario {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: var(--blanco);
+            border: 1px solid #eadbc8;
+            border-radius: 9px;
+            padding: 38px;
+            box-shadow: 0 8px 22px #4931260b;
+        }
+
+        .formulario fieldset {
+            border: 0;
+            border-top: 1px solid #eadbc8;
+            margin: 0 0 30px;
+            padding: 26px 0 0;
+        }
+
+        .formulario fieldset:first-of-type {
+            border-top: 0;
+            padding-top: 0;
+        }
+
+        .formulario legend {
+            padding: 0 12px 0 0;
+            color: var(--cafe);
+            font-family: Georgia, serif;
+            font-size: 1.25rem;
+            font-weight: bold;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px 24px;
+        }
+
+        .campo {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .campo-ancho {
+            grid-column: 1 / -1;
+        }
+
+        .campo label,
+        .campo .etiqueta-campo {
+            font-size: .92rem;
+            font-weight: 600;
+            color: var(--cafe);
+        }
+
+        .campo .obligatorio {
+            color: var(--naranja);
+        }
+
+        .campo input[type="text"],
+        .campo input[type="email"],
+        .campo input[type="tel"],
+        .campo input[type="number"],
+        .campo input[type="date"],
+        .campo select,
+        .campo textarea {
+            width: 100%;
+            padding: 11px 13px;
+            font-family: inherit;
+            font-size: .97rem;
+            color: var(--texto);
+            background: var(--crema);
+            border: 1px solid #e0cdb6;
+            border-radius: 6px;
+            transition: border-color .2s, box-shadow .2s;
+        }
+
+        .campo textarea {
+            resize: vertical;
+            min-height: 110px;
+        }
+
+        .campo input:focus,
+        .campo select:focus,
+        .campo textarea:focus {
+            outline: none;
+            border-color: var(--naranja);
+            box-shadow: 0 0 0 3px #c8793d33;
+        }
+
+        .campo .ayuda {
+            font-size: .82rem;
+            color: #77685d;
+        }
+
+        .opciones {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px 20px;
+        }
+
+        .opcion {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            padding: 13px 15px;
+            background: var(--crema);
+            border: 1px solid #e0cdb6;
+            border-radius: 7px;
+            font-size: .95rem;
+            cursor: pointer;
+        }
+
+        .opcion:hover {
+            border-color: var(--naranja);
+        }
+
+        .opcion input {
+            margin: 3px 0 0;
+            accent-color: var(--naranja);
+        }
+
+        .consentimiento {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            font-size: .93rem;
+        }
+
+        .consentimiento input {
+            margin: 4px 0 0;
+            accent-color: var(--naranja);
+        }
+
+        .acciones-formulario {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 16px;
+            margin-top: 30px;
+            padding-top: 26px;
+            border-top: 1px solid #eadbc8;
+        }
+
+        .acciones-formulario .boton {
+            margin-top: 0;
+            border: 0;
+            font-family: inherit;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+        .acciones-formulario .nota-acciones {
+            font-size: .86rem;
+            color: #77685d;
+        }
+
+        @media (max-width: 760px) {
+            .formulario {
+                padding: 26px;
+            }
+
+            .form-grid,
+            .opciones {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+<header class="encabezado">
+    <a class="marca" href="index.html"><span class="marca-icono">❄</span> Cobijando con Conciencia</a>
+    <button class="menu-toggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
+    <nav class="navegacion">
+        <a href="index.html">Inicio</a>
+        <a href="nosotros.html">Nuestra causa</a>
+        <a class="activo" href="donar.html">Cómo ayudar</a>
+        <a href="impacto.html">¿Por qué donar?</a>
+        <a href="preguntas.html">Preguntas</a>
+        <a href="cuidados.html">Temporada invernal</a>
+    </nav>
+</header>
+
+<main class="pagina">
+    <section class="encabezado-pagina">
+        <span class="sobrelinea">REGISTRO DE DONANTES</span>
+        <h1>Regístrate para donar</h1>
+        <p>Cuéntanos qué te gustaría donar y cómo prefieres entregarlo. Con estos datos podemos organizar la
+            recepción de los artículos y darles un buen destino.</p>
+    </section>
+
+    <section class="seccion">
+        <form class="formulario" action="#" method="post">
+
+            <!-- 1. Datos de contacto -->
+            <fieldset>
+                <legend>Datos de contacto</legend>
+                <div class="form-grid">
+                    <div class="campo">
+                        <label for="nombre">Nombre completo <span class="obligatorio">*</span></label>
+                        <input type="text" id="nombre" name="nombre" autocomplete="name" required
+                               placeholder="Ej. Ana Martínez López">
+                    </div>
+
+                    <div class="campo">
+                        <label for="correo">Correo electrónico <span class="obligatorio">*</span></label>
+                        <input type="email" id="correo" name="correo" autocomplete="email" required
+                               placeholder="nombre@correo.com">
+                    </div>
+
+                    <div class="campo">
+                        <label for="telefono">Teléfono / WhatsApp <span class="obligatorio">*</span></label>
+                        <input type="tel" id="telefono" name="telefono" autocomplete="tel" required
+                               pattern="[0-9+\s\-]{10,15}" placeholder="Ej. 722 123 4567"
+                               aria-describedby="telefono-ayuda">
+                        <span class="ayuda" id="telefono-ayuda">Entre 10 y 15 dígitos, puedes usar espacios o guiones.</span>
+                    </div>
+
+                    <div class="campo">
+                        <label for="institucion">Institución o grupo (opcional)</label>
+                        <input type="text" id="institucion" name="institucion" autocomplete="organization"
+                               placeholder="Ej. Grupo 3.º B · CBTIS 11">
+                    </div>
+                </div>
+            </fieldset>
+
+            <!-- 2. Tipo de donación -->
+            <fieldset>
+                <legend>¿Qué te gustaría donar?</legend>
+                <div class="opciones">
+                    <label class="opcion">
+                        <input type="checkbox" name="articulos" value="cobijas">
+                        <span>Cobijas, mantas o edredones</span>
+                    </label>
+                    <label class="opcion">
+                        <input type="checkbox" name="articulos" value="ropa">
+                        <span>Ropa de abrigo (suéteres, chamarras, calcetines)</span>
+                    </label>
+                    <label class="opcion">
+                        <input type="checkbox" name="articulos" value="calzado">
+                        <span>Calzado cerrado en buen estado</span>
+                    </label>
+                    <label class="opcion">
+                        <input type="checkbox" name="articulos" value="higiene">
+                        <span>Artículos de higiene personal</span>
+                    </label>
+                    <label class="opcion">
+                        <input type="checkbox" name="articulos" value="alimentos">
+                        <span>Alimentos no perecederos</span>
+                    </label>
+                    <label class="opcion">
+                        <input type="checkbox" name="articulos" value="otro">
+                        <span>Otro tipo de apoyo</span>
+                    </label>
+                </div>
+                <div class="form-grid" style="margin-top: 20px;">
+                    <div class="campo">
+                        <label for="cantidad">Cantidad aproximada de artículos</label>
+                        <input type="number" id="cantidad" name="cantidad" min="1" step="1"
+                               placeholder="Ej. 5">
+                    </div>
+                    <div class="campo">
+                        <label for="estado">Estado de los artículos</label>
+                        <select id="estado" name="estado">
+                            <option value="">Selecciona una opción</option>
+                            <option value="nuevo">Nuevos</option>
+                            <option value="usado-bueno">Usados, en buen estado</option>
+                            <option value="mixto">Una mezcla de ambos</option>
+                        </select>
+                    </div>
+                </div>
+            </fieldset>
+
+            <!-- 3. Entrega -->
+            <fieldset>
+                <legend>¿Cómo harás la entrega?</legend>
+                <div class="form-grid">
+                    <div class="campo">
+                        <label for="entrega">Forma de entrega <span class="obligatorio">*</span></label>
+                        <select id="entrega" name="entrega" required>
+                            <option value="">Selecciona una opción</option>
+                            <option value="escuela">Llevar mi donación al CBTIS 11</option>
+                            <option value="punto">Dejarla en un punto de acopio</option>
+                            <option value="recoleccion">Solicitar recolección a domicilio</option>
+                        </select>
+                    </div>
+
+                    <div class="campo">
+                        <label for="fecha">Fecha estimada de entrega <span class="obligatorio">*</span></label>
+                        <input type="date" id="fecha" name="fecha" required>
+                    </div>
+
+                    <div class="campo campo-ancho">
+                        <label for="direccion">Dirección para recolección (opcional)</label>
+                        <input type="text" id="direccion" name="direccion" autocomplete="street-address"
+                               placeholder="Calle, número, colonia y referencias"
+                               aria-describedby="direccion-ayuda">
+                        <span class="ayuda" id="direccion-ayuda">Solo si elegiste recolección a domicilio.</span>
+                    </div>
+
+                    <div class="campo campo-ancho">
+                        <label for="comentarios">Comentarios adicionales (opcional)</label>
+                        <textarea id="comentarios" name="comentarios"
+                                  placeholder="Cuéntanos cualquier detalle que debamos saber sobre tu donación."></textarea>
+                    </div>
+                </div>
+            </fieldset>
+
+            <!-- 4. Consentimiento y envío -->
+            <fieldset>
+                <legend>Confirmación</legend>
+                <label class="consentimiento">
+                    <input type="checkbox" name="consentimiento" value="si" required>
+                    <span>Acepto que los datos proporcionados se usen únicamente para organizar la recepción de mi
+                        donación y recibir avisos relacionados con la campaña. <span class="obligatorio">*</span></span>
+                </label>
+
+                <div class="aviso">
+                    <strong>Recuerda:</strong> revisa que las cobijas y la ropa estén limpias y en buen estado antes de
+                    entregarlas. Tu cuidado también es parte del apoyo.
+                </div>
+
+                <div class="acciones-formulario">
+                    <button class="boton" type="submit">Registrar mi donación <span>→</span></button>
+                    <span class="nota-acciones">Los campos marcados con <span class="obligatorio">*</span> son
+                        obligatorios.</span>
+                </div>
+            </fieldset>
+        </form>
+    </section>
+
+    <p class="nota">¿Tienes dudas sobre qué se puede donar o en qué estado debe estar? Consulta la sección de
+        preguntas frecuentes o escríbenos antes de registrar tu donación.</p>
+
+    <section class="llamado">
+        <h2>Tu registro nos ayuda a llegar más lejos</h2>
+        <p>Con esta información podemos organizar los artículos y entregarlos a asilos, refugios y orfanatos.</p>
+        <a class="boton boton-claro" href="preguntas.html">Ver preguntas frecuentes</a>
+    </section>
+</main>
+
+<footer>
+    <strong>Cobijando con Conciencia</strong>
+    <span>Campaña PAEC · CBTIS 11</span>
+    <span>La solidaridad también abriga.</span>
+</footer>
+</body>
+</html>
